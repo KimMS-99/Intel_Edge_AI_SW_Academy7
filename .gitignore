@@ -28,8 +28,8 @@ __pycache__/
 *.pyo
 *.pyd
 
-/.venv/
-/venv/
+.venv/
+venv/
 /env/
 /.ENV/
 .pytest_cache/
@@ -141,10 +141,6 @@ cscope.*         # cscope index
 # --- ROS1 / ROS2 ---
 .depend
 .catkin_tools/
-/build/
-/devel/
-/install/
-/log/
 COLCON_IGNORE
 .rosinstall
 
