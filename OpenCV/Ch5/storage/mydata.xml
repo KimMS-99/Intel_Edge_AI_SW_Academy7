@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<name>Jane</name>
+<age>10</age>
+<point>
+  100 200</point>
+<scores>
+  80 90 50</scores>
+<data type_id="opencv-matrix">
+  <rows>2</rows>
+  <cols>2</cols>
+  <dt>f</dt>
+  <data>
+    1. 1.5 2. 3.20000005</data></data>
+</opencv_storage>

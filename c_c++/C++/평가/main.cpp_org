@@ -1,0 +1,107 @@
+#include <iostream>
+
+using namespace std;
+
+// void running(Animal *a);
+
+class Animal
+{
+    string name;
+    int age;
+
+public:
+    Animal(string name = "KMS", int age = 27) // 생성자
+    {
+        this->name = name;
+        this->age = age;
+    }
+    Animal(const Animal &animal) // 복사 생성자
+    {
+        this->age = animal.age;
+        this->name = animal.name;
+    }
+    virtual ~Animal() { cout << "Animal 소멸" << endl; } // 가상소멸자
+
+    void setName(string name) { this->name = name; }
+    void setAge(int age) { this->age = age; }
+    string getName() { return name; }
+    int getAge() { return age; }
+
+    virtual void crying() = 0;
+
+    friend void running(Animal *a);
+};
+
+class Dog : public Animal
+{
+    string bark;
+
+public:
+    Dog(string name, int age, string bark) : Animal(name, age) // 생성자
+    {
+        this->bark = bark;
+    }
+    Dog(Dog &dog) : Animal(dog) // 복사 생성자
+    {
+        bark = dog.bark;
+    }
+    virtual ~Dog() { cout << "Dog 소멸" << endl; } // 가상소멸자
+
+    string getBark() { return bark; }
+    void crying() { cout << "강아지는" << bark << endl; }
+};
+
+class Cat : public Animal
+{
+    string bark;
+
+public:
+    Cat(string name, int age, string bark) : Animal(name, age) // 생성자
+    {
+        this->bark = bark;
+    }
+    Cat(Cat &cat) : Animal(cat) // 복사 생성자
+    {
+        bark = cat.bark;
+    }
+    virtual ~Cat() { cout << "Cat 소멸" << endl; } // 가상소멸자
+
+    string getBark() { return bark; }
+    void crying() { cout << "고양이는" << bark << endl; }
+};
+
+void running(Animal *a)
+{
+    cout << a->name << "가 달린다" << endl;
+    // cout << a->getName() << "가 달린다" << endl;
+    // cout << "Test용 나이 출력 : " << a->age << endl; // 평가랑 관련 없음.}
+
+void run(Animal *a)
+{
+    running(a);
+    a->crying();
+}
+
+// 평가
+int main()
+{
+    cout << "--추상클래스와 파생 클래스 구현--\n";
+    Dog *dog = new Dog("강아지", 4, "멍멍");
+    Cat *cat = new Cat("고양이", 2, "야옹");
+
+    cout << "--매개 변수의 다형성 구현--\n";
+    run(dog);
+    run(cat);
+
+    cout << "\n--복사생성자 직접 구현--\n";
+    Dog copyDog(*dog);
+    cout << copyDog.getName() << endl;
+    cout << copyDog.getAge() << endl;
+    cout << copyDog.getBark() << endl;
+
+    cout << "\n--소멸자실행--\n";
+    delete dog;
+    delete cat;
+
+    return 0;
+}

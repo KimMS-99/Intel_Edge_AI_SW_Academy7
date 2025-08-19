@@ -1,0 +1,157 @@
+# --- OS / Editors ---
+.DS_Store
+Thumbs.db
+Icon?
+ehthumbs.db
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*.swn
+*.orig
+*.rej
+*.bak
+*.tmp
+
+# --- Logs ---
+*.log
+/logs/
+*.pid
+*.out
+*.err
+*.trace
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+/.venv/
+/venv/
+/env/
+/.ENV/
+.pytest_cache/
+.mypy_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+
+# --- C/C++ / toolchains ---
+*.o
+*.obj
+*.a
+*.la
+*.lo
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.d
+*.dep
+
+# --- STM32CubeIDE / Eclipse-based ---
+# (CubeMX .ioc 파일은 커밋해야 하므로 제외하지 말 것)
+.settings/
+.cproject
+.project
+.mxproject
+*.launch
+Debug/
+Release/
+
+# --- PlatformIO (Arduino) ---
+.pio/
+.pioenvs/
+.piolibdeps/
+.piolib/
+.clang_complete
+.gcc-flags.json
+
+# --- Qt / Qt Creator / qmake ---
+*.user
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+# qmake가 소스 트리에 생성하는 자동생성물 보호
+moc_*.cpp
+*.moc
+ui_*.h
+qrc_*.cpp
+
+# --- CMake / Qt(CMake) ---
+build-*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CMakeLists.txt.user
+
+# --- Clang tooling caches (optional) ---
+.clangd/
+.ccls-cache/
+
+# --- Secrets / credentials (security, optional) ---
+.env
+.env.*
+*.pem
+*.key
+
+# --- Core dumps / crash artifacts (optional) ---
+core.[0-9]*     # 리눅스 코어덤프: core.12345 형태
+*.core          # someapp.core 같은 확장자 관례
+*.dSYM/         # (macOS) 크래시 번들
+
+
+# --- C/C++ coverage reports (optional) ---
+*.gcno
+*.gcda
+*.gcov
+lcov.info
+
+# --- Jupyter (optional) ---
+.ipynb_checkpoints/
+
+# Kernel Module Compile Results
+*.mod*
+*.ko
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+# dkms.conf
+
+# --- Common build junk / tools ---
+a.out
+gmon.out
+perf.data*
+tags
+cscope.out
+cscope.*         # cscope index
+
+# --- ROS1 / ROS2 ---
+.depend
+.catkin_tools/
+/build/
+/devel/
+/install/
+/log/
+COLCON_IGNORE
+.rosinstall
+
+# --- DeviceTree / 이미지(빌드 산출물) ---
+*.dtb
+*.dtbo
+*.img
+u-boot*.bin
+zImage
+uImage
