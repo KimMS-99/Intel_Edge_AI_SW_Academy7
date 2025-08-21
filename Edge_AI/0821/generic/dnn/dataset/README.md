@@ -1,0 +1,1 @@
+[dataset](https://github.com/alvarobartt/simpsons-mnist)

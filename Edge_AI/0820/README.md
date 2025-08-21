@@ -43,10 +43,18 @@ git checkout v2.37.0
 export CVAT_HOST=<IP Address> # http://<IP Address>:8080/, ubuntu 주소
 docker compose -f docker-compose.yml -f components/serverless/docker-compose.serverless.yml up -d
 docker exec -it cvat_server bash -ic 'python3 ~/manage.py createsuperuser' # 본인이 사용할 어드민 계정 입력
+```
+```bash
+# Nuclio CLI(nuctl) 바이너리 다운로드 – CVAT의 서버리스(자동 라벨링)를 배포/관리할 때 쓰는 명령줄 도구
 wget https://github.com/nuclio/nuclio/releases/download/1.13.0/nuctl-1.13.0-linux-amd64
 sudo chmod +x ./nuctl-1.13.0-linux-amd64
+# 시스템 PATH에 배치(모든 사용자 공용으로 쓰기 위해 /usr/local/bin으로 이동)
 sudo mv nuctl-1.13.0-linux-amd64 /usr/local/bin/
+# 버전명 파일을 일반 이름(nuctl)로 심볼릭 링크 → 이후 버전 교체가 쉬움
 sudo ln -s /usr/local/bin/nuctl-1.13.0-linux-amd64 /usr/local/bin/nuctl
+# CVAT가 제공하는 기본 오토 어노테이션 모델들을 Nuclio에 “배포”
+#   - nuctl을 이용해 'cvat' 프로젝트와 여러 함수(탐지/분할 등 CPU용 모델)를 생성
+#   - 배포가 끝나면 CVAT UI의 Models/Auto annotation 목록에 모델이 나타남
 ./serverless/deploy_cpu.sh
 ```
 
