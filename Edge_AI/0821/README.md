@@ -151,3 +151,9 @@ $ pip list | grep torch
 ```
 
 **[How to use torch with GPU](./How_to_use_torch_with_GPU.py)**
+
+### Pytorch Tensor
+[`Tensor_test.py`](./Tensor_test.py) - 스칼라(0D)·벡터(1D)·행렬(2D)·3D 텐서를 만들고 각 shape와 dim()(차원 수) 값을 확인하는 코드<br>
+[`Tensor_Attribution.py`](./Tensors_Attribution.py) - NumPy ↔ PyTorch 상호운용 & 메모리 레이아웃 실습하는 코드<br>
+[`Autogard`](./Autograd.py) - PyTorch autograd 확인 코드
+[visualize_graph.py](./visualize_graph.py) - 선형 모델의 순전파·역전파와 그래디언트 확인 + 연산 그래프 시각화 실습
