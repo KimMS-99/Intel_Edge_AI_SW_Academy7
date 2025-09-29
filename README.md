@@ -15,4 +15,5 @@
 - [Linux BSP](./linux_BSP/)
 - [Qt](./Qt/)
 - [OpenCV](./OpenCV/)
-- [Edge AI](./Edge_AI/)
+- [AI](./AI/)
+- [ROS](./ROS/)
