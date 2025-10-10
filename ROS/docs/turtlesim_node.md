@@ -50,6 +50,20 @@ $ rostopic pub  /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[0.5,0.0,0.0]' '[0
 $ rostopic hz /turtle1/cmd_vel
 ```
 
+터틀봇 3 웹캠 사용
+```bash
+$ sudo apt install ros-noetic-cv-camera
+$ rosrun cv_camera cv_camera_node
+```
+```bash
+# ubuntu Master 
+$ rqt_image_view #실행후 /cv_camera/image_raw 선택
+
+# slam 또는 navigation 실행 후 좌측 display 창에 
+ # Image  topic에  /cv_camera/image_raw  선택 , 
+ # Transport Hint에 raw 선택
+```
+
 터틀봇 3 
 
 ```bash
@@ -67,4 +81,60 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 
 # 네비게이센 실행
 $ rostopic echo /move_base/goal
+```
+- 첫번째 좌표
+    - pose:
+      - position:
+        - x: 7.1312174797058105
+        - y: 0.19537505507469177
+        - z: 0.0
+      - orientation:
+        - x: 0.0
+        - y: 0.0
+        - z: -0.7126090148123121
+        - w: 0.701561395751096
+
+- 두번째 좌표
+    - pose:
+      - position:
+        - x: 7.1935038566589355
+        - y: -2.629962205886841
+        - z: 0.0
+      - orientation:
+        - x: 0.0
+        - y: 0.0
+        - z: -0.9999675496401628
+        - w: 0.008056032934931484
+
+- 세번째 좌표
+    - pose:
+      - position:
+        - x: -0.01317431777715683
+        - y: -2.9478635787963867
+        - z: 0.0
+      - orientation:
+        - x: 0.0
+        - y: 0.0
+        - z: 0.7306388332983296
+        - w: 0.682764157873314
+    
+출발지점(원점) 이동 명령
+```bash
+$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: "map"}, pose: {position: { x: -0.003047278383746743, y: -0.003047278383746743, z: 0.0}, orientation: { z: 0.010695708005177103, w: 0.9999427992791727}}}'
+```
+
+첫번째 지점 이동 명령
+```bash
+$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: "map"}, pose: {position: { x: 7.1312174797058105, y: 0.19537505507469177, z: 0.0}, orientation: { z: -0.7126090148123121, w: 0.701561395751096}}}'
+```
+
+두 번째 지점 이동 명령
+```bash
+$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: "map"}, pose: {position: { x: 7.1935038566589355, y: -2.629962205886841, z: 0.0}, orientation: { z: -0.9999675496401628, w: 0.008056032934931484}}}'
+```
+
+세번째 좌표이동 명령
+```bash
+$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: "map"}, pose: {position: { x: -0.01317431777715683, y: -2.9478635787963867, z: 0.0}, orientation: { z:  0.7306388332983296
+, w: 0.682764157873314}}}'
 ```
